@@ -10,9 +10,49 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}
+        <div class="container"><!-- début du container-->
+            <div class="columns">
+                <div class="column col-md-3 col-lg-2 col-2"><!-- menu -->
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="#">Benoit Coste</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="{{ path('ticket_liste') }}">Tickets</a>
+                            <ul class="nav">
+                            <li class="nav-item">
+                                <a href="{{ path('ticket_creer') }}">Créer</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Responsive</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Navbar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Empty states</a>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Components</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Deconnexion</a>
+                        </li>
+                    </ul>
+                </div><!--fin du menu-->
+                <div class="column col-md-9 col-lg-10 col-10">
+                    {% block body %}
         
-        {% endblock %}
+                    {% endblock %}
+                </div>
+            </div>
+        
+        
+        </div><!--fin du container-->
         {% block javascripts %}{% endblock %}
+        
     </body>
 </html>

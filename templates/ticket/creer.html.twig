@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un ticket{% endblock %}
+
+{% block body %}
+<div class="modal active" id="modal-id">
+  <a href="#close" class="modal-overlay" aria-label="Fermer"></a>
+  <div class="modal-container">
+    <div class="modal-header">
+      <a href="{{ path('ticket_liste') }}" class="btn btn-clear float-right" aria-label="Fermer"></a>
+      <div class="modal-title h5">Créer un ticket</div>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+        <!-- notre formulaire ici -->
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+      </div>
+    </div>
+    <div class="modal-footer">
+      ...
+    </div>
+  </div>
+</div>
+
+{% endblock %}
