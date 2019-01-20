@@ -6,7 +6,7 @@
 
 
 
-    <h2>Liste des tickets</h2>
+    <h2>te des tickets</h2>
     
 
     <table class="table table-striped table-hover">
@@ -25,11 +25,50 @@
       <td>{{ ticket.Message }}</td>
       <td>{{ ticket.etat }}</td>
       <td> 
-        <a class="btn btn-error" href="{{ path('ticket_supprimer', {'id': ticket.id}) }}"><i class="icon icon-delete"></i></a>
         <a class="btn" href="{{ path('ticket_modifier', {'id': ticket.id}) }}"><i class="icon icon-edit"></i></a>
+        <button class="btn btn-error" onclick="confirmationSuprresion({{ ticket.id }})"><i class="icon icon-delete"></i></a>
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+<!-- voici la confirmation de suppression-->
+<div class="modal modal-sm " id="modal-confirmation-suppression">
+  <a href="#close" class="modal-overlay" aria-label="Close"></a>
+  <div class="modal-container">
+    <div class="modal-header">
+      <a href="#close" class="btn btn-clear float-right" aria-label="Close" onclick="confirmationFermer()"></a>
+      <div class="modal-title h5">Confirmation</div>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+        <!-- modal structure here -->
+        <p>Etes-vous sur de supprimer le ticket ?</p>
+        <button class="btn" onclick="supprimerTicket()">Oui</button>
+        <button class="btn btn-primary" onclick="confirmationFermer()">Non</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <script>
+    //fonction confirmation de suppression
+    
+    var idencours = 0;
+    function confirmationSuprresion(id) {
+        idencours = id;
+        var madiv = document.getElementById('modal-confirmation-suppression');
+        madiv.classList.add("active");
+    }
+    function supprimerTicket(){
+        //on lance l'url suivante : 
+        console.log(idencours);
+        document.location.href = "{{ path('ticket_supprimer') }}" + "/" + idencours;
+    }
+    function confirmationFermer(){
+        idencours = 0;
+        var madiv = document.getElementById('modal-confirmation-suppression');
+        madiv.classList.remove("active");
+    }
+    
+    </script>
 {% endblock %}

@@ -74,7 +74,7 @@ class TicketController extends AbstractController
          ]);
     }
     /**
-     * @Route("/ticket/supprimer/{id}", name="ticket_supprimer")
+     * @Route("/ticket/supprimer/{id}", defaults={"id"= 0}, name="ticket_supprimer")
      */
     public function supprimer($id){
         //on va chercher notre ticket
