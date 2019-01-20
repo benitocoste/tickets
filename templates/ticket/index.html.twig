@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TicketController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="columns">
+        <div class="column col-6">
+            <p>Test1</p>
+        </div>
+        <div class="column col-6">
+            <p>test 2</p>
+        </div>
+    </div>
+</div>
+
+
+    <h2>  liste des tickets</h2>
+    
+
+    <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Objet</th>
+      <th>Message</th>
+      <th>Etat</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <td>{{ ticket.Objet }}</td>
+      <td>{{ ticket.Message }}</td>
+      <td>{{ ticket.etat }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
